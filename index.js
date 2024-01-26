@@ -3,10 +3,23 @@ const listItems = document.getElementById('list-items');
 const addUpdateClick = document.getElementById("addUpdateClick");
 let updateText;
 let updateTextParent;
-let todoData = JSON.parse(localStorage.getItem(todoData));
-if(!todoData){
-    todoData = [];
+let todoData = JSON.parse(localStorage.getItem("item-data")) ||[];
+let todoDatalocal =JSON.parse(localStorage.getItem("item-data")) ||[];
+// let todoDataRetive = localStorage.getItem("item-data") || [];
+console.log(todoData)
+if(todoDatalocal.length != 0){
+todoDatalocal.forEach((item) => {
+    let li = document.createElement("li");
+    const todoItem = `<div ondblclick="completeTodoItem(this)">${item}</div><div><img src="./images/edit.png" onclick="updateTodoItem(this)" class="edit todo-controls"> <img class="delete todo-controls"  onclick="deleteTodoItem(this)" src="./images/delete.png"></div>`;
+    li.innerHTML = (todoItem);
+    listItems.appendChild(li);
+});
+}else{
+    console.log("this is empty")
 }
+// listItems = todoDataRetive
+
+
 
 
 todoValue.addEventListener('keypress', function(e){
@@ -26,18 +39,10 @@ function createTodoData(){
     const todoItem = `<div ondblclick="completeTodoItem(this)">${todoValue.value}</div><div><img src="./images/edit.png" onclick="updateTodoItem(this)" class="edit todo-controls"> <img class="delete todo-controls"  onclick="deleteTodoItem(this)" src="./images/delete.png"></div>`;
     li.innerHTML = (todoItem);
     listItems.appendChild(li);
+    todoData.push(todoValue.value)
+    todoDatalocal = localStorage.setItem("item-data", JSON.stringify(todoData));
     todoValue.value = "";
-
-    if(!todoData){
-        todoData: [];
-    }
-
-    let dataItem = {
-        item: todoValue.value,
-        status: false
-    }
-    console.log(dataItem);
-    todoData.push(dataItem);
+   
 }
 
 function completeTodoItem(e){
