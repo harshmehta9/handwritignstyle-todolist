@@ -4,9 +4,10 @@ const addUpdateClick = document.getElementById("addUpdateClick");
 let updateText;
 let updateTextParent;
 let todoData = JSON.parse(localStorage.getItem("item-data")) ||[];
+console.log(todoData);
 let todoDatalocal =JSON.parse(localStorage.getItem("item-data")) ||[];
-// let todoDataRetive = localStorage.getItem("item-data") || [];
-console.log(todoData)
+console.log(todoDatalocal)
+// console.log(todoData)
 if(todoDatalocal.length != 0){
 todoDatalocal.forEach((item) => {
     let li = document.createElement("li");
@@ -76,6 +77,17 @@ function deleteTodoItem(e){
     let deleteValue = e.parentElement.parentElement.querySelector("div").innerHTML;
     if(confirm("Are you sure you want to delete this?")){
         e.parentElement.parentElement.parentElement.querySelector('li').remove();
-       
+        let indexToDelete = todoData.indexOf(deleteValue);
+        if (indexToDelete !== -1) {
+            todoData.splice(indexToDelete, 1);
+        }
+
+        // Update local storage with the modified todoData array
+        localStorage.setItem("item-data", JSON.stringify(todoData));
+        
+        
+
     }
+
+
 }
