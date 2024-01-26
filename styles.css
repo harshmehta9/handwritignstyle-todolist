@@ -1,0 +1,92 @@
+*{
+    margin:0;
+    padding: 0;
+    font-family: 'Style Script', cursive;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: aqua;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    padding:25px;
+    width: 500px;
+    border-radius: 15px;
+    background-color: transparent;
+}
+
+.todo-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding-left: 5px;
+    color: white;
+}
+
+.todo-body{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background:#edeef0;
+    height: 55px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.todo-body input{
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 15px 0;
+    font-size: 20px;
+}
+
+.todo-body div{
+    cursor: pointer;
+    /* padding:15px; */
+    /* margin-right: 12px; */
+    background: limegreen;
+    border-radius: 30px;
+    font-size: 40px;
+    font-weight: 300;
+    height: 55px;
+    width: 55px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 12px;
+}
+
+ul li{
+    list-style: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px;
+}
+
+li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #edeef0;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.todo-controls{
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    padding: 3px;
+}
+
+
